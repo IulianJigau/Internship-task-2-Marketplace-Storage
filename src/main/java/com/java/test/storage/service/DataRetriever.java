@@ -1,11 +1,11 @@
 package com.java.test.storage.service;
 
-import reactor.core.publisher.Flux;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.util.List;
 
 public interface DataRetriever {
-    Flux<String> streamFile(String fileName);
+    StreamingResponseBody streamFile(String fileName);
 
     List<String> getFiles();
 }

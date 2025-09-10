@@ -1,6 +1,5 @@
 package com.java.test.storage.config;
 
-import com.java.test.storage.exception.ResourceNotFoundException;
 import com.java.test.storage.model.ErrorResponse;
 import jakarta.servlet.ServletException;
 import org.slf4j.Logger;
@@ -17,12 +16,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ServletException.class)
     public ResponseEntity<?> handleException(ServletException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse(ex.getMessage()));
-    }
-
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> handleException(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(ex.getMessage()));
     }
