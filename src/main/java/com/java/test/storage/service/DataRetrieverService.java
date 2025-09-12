@@ -4,7 +4,7 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import java.util.List;
 
-public interface DataRetriever {
+public interface DataRetrieverService {
     StreamingResponseBody streamFile(String fileName);
 
     List<String> getFiles();

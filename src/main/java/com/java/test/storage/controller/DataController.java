@@ -1,6 +1,6 @@
 package com.java.test.storage.controller;
 
-import com.java.test.storage.service.DataRetriever;
+import com.java.test.storage.service.DataRetrieverService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DataController {
 
-    private final DataRetriever dataRetriever;
+    private final DataRetrieverService dataRetriever;
 
     @Operation(summary = "Load from csv")
     @GetMapping(value = "/stream/{fileName}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)

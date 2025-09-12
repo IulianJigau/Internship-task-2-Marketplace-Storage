@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-public class DataRetrieverImp implements DataRetriever {
+public class DataRetrieverServiceImpl implements DataRetrieverService {
 
     private final int BATCH_SIZE = 4096;
 
