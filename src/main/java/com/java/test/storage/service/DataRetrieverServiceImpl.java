@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 public class DataRetrieverServiceImpl implements DataRetrieverService {
 
     private final int BATCH_SIZE = 4096;
+    private final String FILE_EXTENSION = ".csv";
 
     @Value("${app.storage-path}")
     private String storagePath;
@@ -41,7 +42,7 @@ public class DataRetrieverServiceImpl implements DataRetrieverService {
     public StreamingResponseBody streamFile(String fileName) {
         Path filePath = Paths.get(storagePath, fileName);
 
-        if (!fileName.endsWith(".csv")) {
+        if (!fileName.endsWith(FILE_EXTENSION)) {
             throw new ResourceValidationException("Wrong file format");
         }
 
