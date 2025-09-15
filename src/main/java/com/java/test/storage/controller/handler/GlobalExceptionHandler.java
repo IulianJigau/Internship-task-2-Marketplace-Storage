@@ -14,12 +14,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ServletException.class)
-    public ResponseEntity<?> handleException(ServletException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse(ex.getMessage()));
-    }
-
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleException(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -28,6 +22,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceValidationException.class)
     public ResponseEntity<?> handleException(ResourceValidationException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
+
+    //Pre-defined exceptions
+    @ExceptionHandler(ServletException.class)
+    public ResponseEntity<?> handleException(ServletException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(ex.getMessage()));
     }
