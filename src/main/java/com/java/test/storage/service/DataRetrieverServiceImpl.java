@@ -18,8 +18,8 @@ import java.util.stream.Stream;
 @Service
 public class DataRetrieverServiceImpl implements DataRetrieverService {
 
-    private final int BATCH_SIZE = 4096;
-    private final String FILE_EXTENSION = ".csv";
+    private final static int BATCH_SIZE = 4096;
+    private final static String FILE_EXTENSION = ".csv";
 
     @Value("${app.storage-path}")
     private String storagePath;
